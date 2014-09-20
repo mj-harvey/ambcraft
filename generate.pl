@@ -10,6 +10,8 @@ my @in   = read_file( "processed/the-archers.dat" );
 my @lovecraft   = read_file( "processed/lovecraft.dat" );
 my @names= read_file( "name-substitutions.txt" );
 
+$| = 1;
+
 #my      $dbh= DBI->connect("dbi:Pg:dbname=ambcraft;host=localhost", "ambcraft", "Brianftaghn" );
 #my $stmt = $dbh->prepare( "INSERT INTO ambridge_quotes ( text ) VALUES (?)" );
 

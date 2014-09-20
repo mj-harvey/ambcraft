@@ -12,8 +12,8 @@ my @names= read_file( "name-substitutions.txt" );
 
 $| = 1;
 
-#my      $dbh= DBI->connect("dbi:Pg:dbname=ambcraft;host=localhost", "ambcraft", "Brianftaghn" );
-#my $stmt = $dbh->prepare( "INSERT INTO ambridge_quotes ( text ) VALUES (?)" );
+my      $dbh= DBI->connect("dbi:Pg:dbname=ambcraft;host=localhost", "ambcraft", "Brianftaghn" );
+my $stmt = $dbh->prepare( "INSERT INTO ambridge_quotes ( text ) VALUES (?)" );
 
 my $lovecraft_score = {};
 my $archers_score   = {};
@@ -101,10 +101,10 @@ push(@in, @lovecraft);
 							}
 							if( $score_lovecraft>0 && $score_archers>0 ) {
 								print "[$PHRASE] [ L=$score_lovecraft A=$score_archers ]\n\n";
+$stmt->execute( $PHRASE );
 							}
 }
 							$PHRASE="";
-#$stmt->execute( $PHRASE );
 
 #						}
 					}
